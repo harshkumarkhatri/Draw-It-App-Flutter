@@ -103,14 +103,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         final res = await _imageSave.saveImage(imageBytes: iInt8List);
         // print("res is ${res}");
         print("saving to gallery");
-        showInSnackBar("Image Saved to Gallery");
+        showInSnackBar("Image Saved to Gallery. Start drawing to auto clear screen.");
       } else {
         StorageUploadTask storageUploadTask = storageReference
             .child("IMG_${DateTime.now().millisecondsSinceEpoch}.png")
             .putData(iInt8List);
         await storageUploadTask.onComplete;
         print("Saving to cloud");
-        showInSnackBar("Image saved to Cloud");
+        showInSnackBar("Image saved to Cloud.");
       }
     }
     CircularProgressIndicator();
