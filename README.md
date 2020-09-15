@@ -10,10 +10,15 @@ to be done:-
 * adding double back to close the app--- this is not being done as we are having a snackbar pre present in the bottom and it will not appear again
 * saving to the device is working fine. i need to add a ticker which can be used to save the photos to the gallery or to the cloud.Was working on this look for how we can save the state of the variable defined in the del_variable and changed with the ticker.---added an option in the top 3 dots which can be used to switch between the saving state.
 * the only pro3blem which is coming now is that the screen is not refreshed after th image is save to gallery whereas when the image is saved to cloud things are fine.---Added it to FAQ.
+* Saving images to storage in a particular folder--- done with the help of keeping a new directory name along with the file.
+* Saving images to cloud in the folder which is unique and identified with their username/email--- Done by adding a folderName/to the file name.
 
-* Adding the login and signup if the user wished to save to the cloud. This condition of login should be satisfied first. Also once the login is made then the app saves the login and it should not be done each time the app is closed. 
-* Saving images to storage in a particular folder.
-* Saving images to cloud in the folder which is unique and identified with their username/email.
+* Adding the login and signup if the user wished to save to the cloud. This condition of login should be satisfied first. Also once the login is made then the app saves the login and it should not be done each time the app is closed.
+* If possible add login from google account and from other accounts as well.
+* Add a circular progress bar indication when the user is submitting the form to make it look that it is taking time like naturally.
+* rebuilding the signuploginswitcher page ui.
+* Saving the user login permanently so there is no need to login again and again and showing the logged in user details inside the user section(to be developed). Display please login if user is not logged in.
+* Replace thefolder name with the username after successful login.
 * A way with whcih the images which are displayed from the cloud can be opened in the gallery.
 * A waythrough which we can display all the images from the cloud and from storage to the user in another screen.
 * Add a screen to display all the images which are saved in the cloud
