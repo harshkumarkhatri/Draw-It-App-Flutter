@@ -12,11 +12,16 @@ to be done:-
 * the only pro3blem which is coming now is that the screen is not refreshed after th image is save to gallery whereas when the image is saved to cloud things are fine.---Added it to FAQ.
 * Saving images to storage in a particular folder--- done with the help of keeping a new directory name along with the file.
 * Saving images to cloud in the folder which is unique and identified with their username/email--- Done by adding a folderName/to the file name.
+* Completed the UI for login app
+* Completed the login page functionalities:-agar sign in kr k jayega toh ander feature us hisab sai milenge. agar skip for now kr k jayega toh ander feature us hisaab sai milenge.
+* Completed circular progress bar indicator thing for login page.
+* App is saving the login if the user logs in once.
+* If the user does not logs in then he has to log in again and again.
 
+* Replace logout with profile option and in that display logout option.
 * Adding the login and signup if the user wished to save to the cloud. This condition of login should be satisfied first. Also once the login is made then the app saves the login and it should not be done each time the app is closed.
 * If possible add login from google account and from other accounts as well.
-* Add a circular progress bar indication when the user is submitting the form to make it look that it is taking time like naturally.
-* rebuilding the signuploginswitcher page ui.
+* Add a circular progress bar indication when the user is submitting the form to make it look that it is taking time like naturally.---remaining for register page.
 * Saving the user login permanently so there is no need to login again and again and showing the logged in user details inside the user section(to be developed). Display please login if user is not logged in.
 * Replace thefolder name with the username after successful login.
 * A way with whcih the images which are displayed from the cloud can be opened in the gallery.

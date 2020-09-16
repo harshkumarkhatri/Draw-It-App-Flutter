@@ -15,26 +15,39 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 5),
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => ScreenShotCapture()))
-        );
+            MaterialPageRoute(builder: (_) => ScreenShotCapture())));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-          colors: [Color.fromRGBO(168, 196, 208, 1), Colors.green[400]],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        )),
-        // TODO: Add the desired gif file here
-        child: Image.network(
-            "https://media.giphy.com/media/KGSI32IXP5IbXoKSV4/giphy.gif"),
-      ),
-    );
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(color: Colors.white),
+              // TODO: Add the desired gif file here
+              child: Image.asset("assets/loadingGIF.gif"),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 50),
+                Center(
+                  child: Text("Draw It",
+                      style: TextStyle(
+                          fontSize: 60.0,
+                          fontWeight: FontWeight.bold,
+                          foreground: Paint()..shader = linearGradient)),
+                ),
+              ],
+            ),
+          ],
+        ));
   }
+
+  final Shader linearGradient = LinearGradient(
+    colors: <Color>[Colors.white, Colors.blue[300]],
+  ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
 }

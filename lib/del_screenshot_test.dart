@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   bool isSwitched = false;
   bool loading = false;
   var forClear = "save";
-
+  String folderName = "harsh";
 
 // Converting the screen to image and saving on cloud or storage
   void convertWidgetToImage() async {
@@ -100,13 +100,16 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     // print("initial value of save ${forClear}");
     if (forClear == "save") {
       if (_saveTo) {
-        final res = await _imageSave.saveImage(imageBytes: iInt8List);
+        final res = await _imageSave.saveImage(
+            imageBytes: iInt8List, directoryName: "Draw It");
         // print("res is ${res}");
         print("saving to gallery");
-        showInSnackBar("Image Saved to Gallery. Start drawing to auto clear screen.");
+        showInSnackBar(
+            "Image Saved to Gallery. Start drawing to auto clear screen.");
       } else {
         StorageUploadTask storageUploadTask = storageReference
-            .child("IMG_${DateTime.now().millisecondsSinceEpoch}.png")
+            .child(
+                "$folderName/IMG_.png")
             .putData(iInt8List);
         await storageUploadTask.onComplete;
         print("Saving to cloud");
@@ -125,6 +128,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       loading = false;
     });
     // print("final value of save ${forClear}");
+  }
+
+  getImage(){
+    print(storageReference.getDownloadURL());
   }
 
   @override
@@ -216,7 +223,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         ),
                       )),
 
-                      // TODO: to be deleted
+                  // TODO: to be deleted
                   Positioned(
                     top: 45,
                     right: 50,
@@ -339,6 +346,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                       color = temp;
                     });
                   }
+                  getImage();
                 },
               ),
             ),
