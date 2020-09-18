@@ -7,8 +7,9 @@ class LogInSignUpSwitcher extends StatefulWidget {
   _LogInSignUpSwitcherState createState() => _LogInSignUpSwitcherState();
 }
 
-class _LogInSignUpSwitcherState extends State<LogInSignUpSwitcher> with SingleTickerProviderStateMixin{
- TabController controller;
+class _LogInSignUpSwitcherState extends State<LogInSignUpSwitcher>
+    with SingleTickerProviderStateMixin {
+  TabController controller;
   @override
   void initState() {
     controller = TabController(length: 2, vsync: this);
@@ -20,23 +21,30 @@ class _LogInSignUpSwitcherState extends State<LogInSignUpSwitcher> with SingleTi
     controller.dispose();
     super.dispose();
   }
-   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(150),
-          child: SafeArea(
-            child: AppBar(
+          preferredSize: Size.fromHeight(125),
+          child:  AppBar(
               backgroundColor: Colors.white,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image(
-                    height: 82,
-                    image: NetworkImage(
-                        "https://cdn.dribbble.com/users/1107687/avatars/normal/ddaa5340d270b8f4b073273aafbd34e2.png?1536764943"),
-                  ),
-                ],
+              title: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(height:80,width:80,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image(
+                          height: 82,fit: BoxFit.cover,
+                          image: AssetImage("assets/appLogo.png"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               bottom: TabBar(
                   controller: controller,
@@ -63,10 +71,10 @@ class _LogInSignUpSwitcherState extends State<LogInSignUpSwitcher> with SingleTi
                     )
                   ]),
             ),
-          ),
+          
         ),
         body: TabBarView(
-          children: [LoginPage(),SignUp()],
+          children: [LoginPage(), SignUp()],
           controller: controller,
         ));
   }

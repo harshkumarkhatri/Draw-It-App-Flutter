@@ -45,6 +45,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: TextFormField(
                 controller: nameHolder2,
+                obscureText: true,
                 validator: (input) {
                   if (input.length < 2) {
                     return "Password is small";
