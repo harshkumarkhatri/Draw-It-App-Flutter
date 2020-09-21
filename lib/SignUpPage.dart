@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,6 +20,26 @@ class _SignUpState extends State<SignUp> {
   final _passwordController = TextEditingController(text: '');
   // final _confirmPasswordController = TextEditingController(text: '');
   bool loading = false;
+  final DBref = FirebaseDatabase.instance.reference();
+  SharedPreferences prefs;
+  List linkStore = [];
+
+  var uid;
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  void init() async {
+    prefs = await SharedPreferences.getInstance();
+    // uid = prefs.getString('uid');
+    // print("Uid is $uid");
+    // readData();
+    // getData().then((val) {
+    //   print("This is val ${val.uid}");
+    // });
+    // print("snapshot is ${dbss.toString()}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,8 +199,10 @@ class _SignUpState extends State<SignUp> {
         assert(await result.user.getIdToken != null);
         print(user);
         // return user;
-        SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', result.user.email);
+        prefs.setString('uid', result.user.uid);
+        uid = result.user.uid;
+        writeData();
         // prefs.set
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => SplashScreen()));
@@ -191,8 +214,17 @@ class _SignUpState extends State<SignUp> {
         setState(() {
           loading = false;
         });
+        
         // return null;
       }
     }
+  }
+
+  void writeData() async {
+    DBref.child(uid).set({
+      'fname': prefs.getString('email'),
+      'imageLinks': linkStore.toString(),
+    });
+    print("Data written");
   }
 }
