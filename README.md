@@ -30,7 +30,12 @@ to be done:-
 * Replace thefolder name with the username after successful login.
 * A way with whcih the images which are displayed from the cloud can be opened in the gallery.
 * A waythrough which we can display all the images from the cloud and from storage to the user in another screen.
-* Add a screen to display all the images which are saved in the cloud
+* Add a screen to display all the images which are saved in the cloud.
+* Store email and the image links to the
+database(2 cols). Update the links each
+time a new image uploaded, To  show the
+images check if we have the email same
+as that in sprefs.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
