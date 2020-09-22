@@ -177,6 +177,7 @@ class _LoginPageState extends State<LoginPage> {
         print(result.user.email);
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', result.user.email);
+        prefs.setString('uid', result.user.uid);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => SplashScreen()));
       } catch (e) {
