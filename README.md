@@ -30,7 +30,7 @@ to be done:-
 * Replace thefolder name with the username after successful login.
 * A way with whcih the images which are displayed from the cloud can be opened in the gallery.
 * A waythrough which we can display all the images from the cloud and from storage to the user in another screen.
-* Add a screen to display all the images which are saved in the cloud.
+* Add a screen to display all the images which are saved in the cloud.(will be done once we are able to figure out how to save multiple values in firebase key value pair)
 * Store email and the image links to the
 database(2 cols). Update the links each
 time a new image uploaded, To  show the
