@@ -39,6 +39,7 @@ dependencies:
   firebase_core: ^0.5.0
   fluttertoast: ^7.1.1
   firebase_database: ^4.0.0
+  cloud_firestore:
   # google_sign_in: ^4.5.3
   # image_gallery_saver: ^1.5.0
   # simple_permissions: ^0.1.9
