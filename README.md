@@ -36,6 +36,9 @@ database(2 cols). Update the links each
 time a new image uploaded, To  show the
 images check if we have the email same
 as that in sprefs.
+
+## This is something i was doing in the morning and up till evening
+* The user when sign up with a new id and password, a new database instance is created which will be having a null as its link. Once the user will be drawing something and will be clicking on the save button then a new field in links is created with the top one as null. All the new fields will be be entered from 1. Once see if we have to do anything in the login thing.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
