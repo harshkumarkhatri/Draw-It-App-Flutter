@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,16 @@ class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> _formstate = GlobalKey<FormState>();
   String _email, _password;
   final _passwordController = TextEditingController(text: '');
-  // final _confirmPasswordController = TextEditingController(text: '');
   bool loading = false;
   final DBref = FirebaseDatabase.instance.reference();
   SharedPreferences prefs;
-  List linkStore = [];
 
-  var uid;
+// Initializing the firebase instance for firestore
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  CollectionReference users =
+      FirebaseFirestore.instance.collection("ImageLinks");
+
+  var uid, email;
   void initState() {
     super.initState();
     init();
@@ -32,19 +36,13 @@ class _SignUpState extends State<SignUp> {
 
   void init() async {
     prefs = await SharedPreferences.getInstance();
-    // uid = prefs.getString('uid');
-    // print("Uid is $uid");
-    // readData();
-    // getData().then((val) {
-    //   print("This is val ${val.uid}");
-    // });
-    // print("snapshot is ${dbss.toString()}");
+    uid = prefs.getString('uid');
+    email = prefs.getString('email');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.amber,
       body: Form(
         key: _formstate,
         child: SingleChildScrollView(
@@ -86,7 +84,6 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: TextFormField(
                   controller: nameHolder3,
-                  // controller: _confirmPasswordController,
                   obscureText: true,
                   validator: (input) {
                     if (input.isEmpty) {
@@ -97,10 +94,14 @@ class _SignUpState extends State<SignUp> {
                   decoration: InputDecoration(labelText: "Confirm Password"),
                 ),
               ),
+
+              // Circular progress bar indicator to give a feel for time taken to sign up.
               SizedBox(height: 15),
               loading == true && _email != null && _password.length > 2
                   ? CircularProgressIndicator()
                   : Container(),
+
+              // Sign Up button.
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
                 child: RaisedButton(
@@ -109,20 +110,6 @@ class _SignUpState extends State<SignUp> {
                       loading = true;
                     });
                     signIn();
-                    // .then((user) {
-                    //   if (user != null) {
-                    //     print("success");
-                    //     setState(() {
-                    //       successMessage =
-                    //           "Registered successfully. \n You can now login";
-                    //     });
-                    //   } else {
-                    //     setState(() {
-                    //       successMessage = "Error registering";
-                    //     });
-                    //     print("Error registering");
-                    //   }
-                    // });
                   },
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
@@ -171,16 +158,17 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
+// Clearing the text fields after successful/unsuccessful sign up.
   final nameHolder = TextEditingController();
   final nameHolder2 = TextEditingController();
   final nameHolder3 = TextEditingController();
-
   clearTextInput() {
     nameHolder.clear();
     nameHolder2.clear();
     nameHolder3.clear();
   }
 
+  // Sign up
   Future<void> signIn() async {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
     final formState = _formstate.currentState;
@@ -194,16 +182,20 @@ class _SignUpState extends State<SignUp> {
         User user = result.user;
         print("User details");
         print(result.user.uid);
-        // print(result.user.getIdToken());
         assert(result != null);
         assert(await result.user.getIdToken != null);
         print(user);
-        // return user;
         prefs.setString('email', result.user.email);
         prefs.setString('uid', result.user.uid);
         uid = result.user.uid;
-        writeData();
-        // prefs.set
+
+        // Initializing firestore with enail and empty link array.
+        users.document(uid).setData(
+          {
+            "mailId": _email,
+            "links": FieldValue.arrayUnion([null]),
+          },
+        );
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => SplashScreen()));
       } catch (e) {
@@ -214,17 +206,7 @@ class _SignUpState extends State<SignUp> {
         setState(() {
           loading = false;
         });
-        
-        // return null;
       }
     }
-  }
-
-  void writeData() async {
-    DBref.child(uid).set({
-      'fname': prefs.getString('email'),
-      'imageLinks': linkStore.toString(),
-    });
-    print("Data written");
   }
 }

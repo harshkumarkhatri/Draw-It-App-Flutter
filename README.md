@@ -39,6 +39,16 @@ as that in sprefs.
 
 ## This is something i was doing in the morning and up till evening
 * The user when sign up with a new id and password, a new database instance is created which will be having a null as its link. Once the user will be drawing something and will be clicking on the save button then a new field in links is created with the top one as null. All the new fields will be be entered from 1. Once see if we have to do anything in the login thing.
+
+## Things done till night
+I have added listview builder in the del_addingtodatabase.dart file and when the user visits that page the image have to laod automatically. The thing which is happening is that i have to press r twice to get all the images loaded(latest saved and old ones). I have to add circular progress bar indicator also which will indicate the image loading.
+
+## Things done till morning october 2
+I have added a detail screen class in the del_forAddingToDB.dart which will be opening the image in a large view when we click on any of the image which is displayed in the gridview. The dead code removal and comment adding for del_Screenshot_test.dart has been completed.
+
+## Things done till evening october 2
+Added a circular cross button on the top right on the screen which shows the enlarged image from the images which are stored in the cloud.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
