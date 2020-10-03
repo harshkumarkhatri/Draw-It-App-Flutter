@@ -49,6 +49,8 @@ I have added a detail screen class in the del_forAddingToDB.dart which will be o
 ## Things done till evening october 2
 Added a circular cross button on the top right on the screen which shows the enlarged image from the images which are stored in the cloud.
 
+## Things done till afternoon october 3
+Changed the layout of the widget where the images were to be displayed, added a swipe feature to display delete and send buttons, a more widget also does the same things. Images from the cloud can now be shared.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
