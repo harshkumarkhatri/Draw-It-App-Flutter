@@ -51,6 +51,9 @@ Added a circular cross button on the top right on the screen which shows the enl
 
 ## Things done till afternoon october 3
 Changed the layout of the widget where the images were to be displayed, added a swipe feature to display delete and send buttons, a more widget also does the same things. Images from the cloud can now be shared.
+
+## Things done till night october 4
+Delete button now works fine. The image is removed from the storage and the link is removed from firestore. The image after being deleted results in popping of the screen. The problem which is there is that the list in the gridview is not updated dynamically and the image is still there in the list of images which are there.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
