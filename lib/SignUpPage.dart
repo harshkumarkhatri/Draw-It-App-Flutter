@@ -22,6 +22,7 @@ class _SignUpState extends State<SignUp> {
   bool loading = false;
   final DBref = FirebaseDatabase.instance.reference();
   SharedPreferences prefs;
+  String pass;
 
 // Initializing the firebase instance for firestore
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -72,8 +73,13 @@ class _SignUpState extends State<SignUp> {
                   controller: nameHolder2,
                   obscureText: true,
                   validator: (input) {
+                    setState(() {
+                      pass = input;
+                    });
                     if (input.length < 5) {
                       return "password lenght should be 6 or more";
+                    } else if (pass != input) {
+                      return "Passwords do not match";
                     }
                   },
                   onSaved: (input) => _password = input,
@@ -86,8 +92,10 @@ class _SignUpState extends State<SignUp> {
                   controller: nameHolder3,
                   obscureText: true,
                   validator: (input) {
-                    if (input.isEmpty) {
-                      return "passwords do not match";
+                    if (input.length < 5) {
+                      return "password lenght should be 6 or more";
+                    } else if (pass != input) {
+                      return "Passwords do not match";
                     }
                   },
                   onSaved: (input) => _password = input,

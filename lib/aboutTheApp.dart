@@ -353,7 +353,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                   ),
                 ),
                 SizedBox(height: 30),
-                Center(child: Text("Version:1.0.0")),
+                Center(child: Text("Version:1.0.1")),
                 SizedBox(height: 20),
               ],
             ),

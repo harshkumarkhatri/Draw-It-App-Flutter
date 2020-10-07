@@ -1,7 +1,7 @@
 # draw_it_app
 
 A new Flutter project.
-to be done:-
+Done:-
 * Saving the canvas and clearing the screen---done
 * deleting the lines which we have drawn--- ased an erase option.
 * adding a background image on which drawing can be done and then saving it.
@@ -23,19 +23,28 @@ to be done:-
 * make the password text fields obscure in all the text fields.---done
 * Add a circular progress bar indication when the user is submitting the form to make it look that it is taking time like naturally.---added for both the pages.
 * Saving the user login permanently so there is no need to login again and again and showing the logged in user details inside the user section(to be developed). Display please login if user is not logged in.---saving the user login permanently id done, usersection is not developing because there is only email to display in it. An alternate to this is done where we show logout to user after he has login saved else we show login.
-
-* If possible add login from google account and from other accounts as well.
-* confirm password is not working
-* push and context need to seen.As if we click on login after we have skipped first, it takes us to login but if we click in back button it takes us to screen. check if loggin in and clicking back takes us there.
-* Replace thefolder name with the username after successful login.
-* A way with whcih the images which are displayed from the cloud can be opened in the gallery.
-* A waythrough which we can display all the images from the cloud and from storage to the user in another screen.
-* Add a screen to display all the images which are saved in the cloud.(will be done once we are able to figure out how to save multiple values in firebase key value pair)
+* confirm password is not working---done
+* Replace thefolder name with the username after successful login---done we are replacing it with uid
+* A way with whcih the images which are displayed from the cloud can be opened in the gallery---created a detail screen page whcih now opens the image when clicked from the gidview in image gridview screen. also added delete and share feature.
+* A waythrough which we can display all the images from the cloud and from storage to the user in another screen---not doing this because i have created detail screen for images which are there in cloud and for the images saved in local storage, a message is displayed saying you can see the images saved to storage in gallery.
+* Add a screen to display all the images which are saved in the cloud.(will be done once we are able to figure out how to save multiple values in firebase key value pair)---done
 * Store email and the image links to the
 database(2 cols). Update the links each
 time a new image uploaded, To  show the
 images check if we have the email same
-as that in sprefs.
+as that in sprefs.---done
+* Forced potrtrait orientation-done
+* Versioning-Mannual versioning will be done each time a new update is pushed to the app
+
+## to be done
+* push and context need to seen.As if we click on login after we have skipped first, it takes us to login but if we click in back button it takes us to screen. check if loggin in and clicking back takes us there..
+* Log out and login with int app when the user is logged in or not logged in needs to be worked upon.
+* Updating some questions inside the FAQ.
+* Displaying a circular progress bar indicator which will keep on rotating until the image is loaded. If the user does not has any images then we need to display:-"No images found".
+* Set the name of app to Draw it app in the recent app section
+
+## Future Scopes
+* If possible add login from google account and from other accounts as well.
 
 ## This is something i was doing in the morning and up till evening
 * The user when sign up with a new id and password, a new database instance is created which will be having a null as its link. Once the user will be drawing something and will be clicking on the save button then a new field in links is created with the top one as null. All the new fields will be be entered from 1. Once see if we have to do anything in the login thing.
@@ -59,7 +68,11 @@ Delete button now works fine. The image is removed from the storage and the link
 Dead code removed from detail screen.dart file and from Images gridview file. Apart from this code was moved to seperate files for better redability. The problem of gridview not reloading and not being able to display the items was resolved by two pop operations being performed and then a puch operation being performed.
 
 ## Things done till night October 6
+I am thinking of having this as a solution for displaying images saved in storage in the app. We cca do one thing, while saving the image we can display a messagesaying image is saved in storage and can be seen withing gallery. If the user id not logged in then he will be saving files to storage and will not be having the option to see the images saved to gallery. We can replace that option with an option which on click will take the user to the folder in file explorer or gallery and shpw them the saved images.
+For the user who is logged in already, there will a message displayed in the image gridview section saing, images saved in local storage can be vieewd in gallery.
 
+## Things done till night October 7
+When i tested the app with Skip for now, the app was lossing its functionality to save images only to storage. This issue has been fixed. Apart from this when a non logged in used clicks on images saved to cloud, then he is shown a snackbar which says you need to login to access this.
 
 ## Getting Started
 

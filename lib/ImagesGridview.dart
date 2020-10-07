@@ -7,7 +7,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:ext_storage/ext_storage.dart';
 import 'DetailScreen.dart';
 
 class ImagesGridView extends StatefulWidget {
@@ -65,6 +65,16 @@ class _ImagesGridViewState extends State<ImagesGridView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Center(
+                  child: Text(
+                    "Images Saved to Local Storage can be found in Gallery",
+                  ),
+                ),
+              ),
+            ),
             Expanded(
                 child: GridView.count(
                     childAspectRatio: MediaQuery.of(context).size.width /
@@ -91,8 +101,9 @@ class _ImagesGridViewState extends State<ImagesGridView> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       image: DecorationImage(
-                                          image: NetworkImage(item),
-                                          fit: BoxFit.cover),
+                                        image: NetworkImage(item),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
