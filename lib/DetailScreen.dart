@@ -3,6 +3,7 @@
 
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:path/path.dart' as Path;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -96,11 +97,14 @@ class _DetailScreenState extends State<DetailScreen> {
                   },
                   child: Center(
                     child: Hero(
-                      tag: 'imageHero',
-                      child: Image.network(
-                        widget.item,
-                      ),
-                    ),
+                        tag: 'imageHero',
+                        child: CachedNetworkImage(
+                          imageUrl: widget.item,
+                          placeholder: (context, url) =>
+                              CircularProgressIndicator(),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        )),
                   ),
                   onTap: () {
                     Navigator.pop(context);

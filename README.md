@@ -35,13 +35,15 @@ images check if we have the email same
 as that in sprefs.---done
 * Forced potrtrait orientation-done
 * Versioning-Mannual versioning will be done each time a new update is pushed to the app
+* Log out and login with int app when the user is logged in or not logged in needs to be worked upon.---done
+* push and context need to seen.As if we click on login after we have skipped first, it takes us to login but if we click in back button it takes us to screen. check if loggin in and clicking back takes us there.---this is done. The clicking of back button now pops up a exit confirmation box which on clicking yes takes us out of the app.
+* Set the name of app to Draw it app in the recent app section---done
+* Displaying a circular progress bar indicator which will keep on rotating until the image is loaded. If the user does not has any images then we need to display:-"No images found".---done
 
 ## to be done
-* push and context need to seen.As if we click on login after we have skipped first, it takes us to login but if we click in back button it takes us to screen. check if loggin in and clicking back takes us there..
-* Log out and login with int app when the user is logged in or not logged in needs to be worked upon.
 * Updating some questions inside the FAQ.
-* Displaying a circular progress bar indicator which will keep on rotating until the image is loaded. If the user does not has any images then we need to display:-"No images found".
-* Set the name of app to Draw it app in the recent app section
+
+
 
 ## Future Scopes
 * If possible add login from google account and from other accounts as well.
@@ -73,6 +75,11 @@ For the user who is logged in already, there will a message displayed in the ima
 
 ## Things done till night October 7
 When i tested the app with Skip for now, the app was lossing its functionality to save images only to storage. This issue has been fixed. Apart from this when a non logged in used clicks on images saved to cloud, then he is shown a snackbar which says you need to login to access this.
+
+## Nothing done on October 8
+
+## Things done on October 9
+Login and logout not pops a screen and takes the user to the loginsignup witcher. Also the values in the prefs are saved accordingly.
 
 ## Getting Started
 

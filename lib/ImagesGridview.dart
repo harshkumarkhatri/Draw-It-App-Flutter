@@ -1,6 +1,7 @@
 // This file displays the images which are stored in the Firebase Storage and have their links stored in Firestore.
 // The images are displayd in form of GridView.
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -24,6 +25,7 @@ class _ImagesGridViewState extends State<ImagesGridView> {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final fb = FirebaseDatabase.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  bool itemsSwitcher = false;
 
   // Dynamic list o store the links
   List<dynamic> li = [];
@@ -51,6 +53,9 @@ class _ImagesGridViewState extends State<ImagesGridView> {
         if (li[0] == null) {
           li.removeAt(0);
         }
+        if (li.length < 1) {
+          itemsSwitcher = true;
+        }
       });
     });
   }
@@ -75,41 +80,54 @@ class _ImagesGridViewState extends State<ImagesGridView> {
                 ),
               ),
             ),
-            Expanded(
-                child: GridView.count(
-                    childAspectRatio: MediaQuery.of(context).size.width /
-                        MediaQuery.of(context).size.height,
-                    crossAxisCount: 2,
-                    padding: EdgeInsets.all(
-                      5,
-                    ),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    children: li
-                        .map((item) => GestureDetector(
-                              onTap: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (_) {
-                                  return DetailScreen(item);
-                                }));
-                              },
-                              child: Card(
-                                color: Colors.white,
-                                elevation: 2,
-                                child: Center(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      image: DecorationImage(
-                                        image: NetworkImage(item),
-                                        fit: BoxFit.cover,
+            itemsSwitcher == true
+                ? Center(
+                    child: Container(
+                        child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                        "You don't have any images saved to cloud. Start saving and we will display them here"),
+                  )))
+                : Expanded(
+                    child: GridView.count(
+                        childAspectRatio: MediaQuery.of(context).size.width /
+                            MediaQuery.of(context).size.height,
+                        crossAxisCount: 2,
+                        padding: EdgeInsets.all(
+                          5,
+                        ),
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        children: li
+                            .map((item) => GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (_) {
+                                      return DetailScreen(item);
+                                    }));
+                                  },
+                                  child: Card(
+                                    color: Colors.white,
+                                    elevation: 2,
+                                    child: Center(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: CachedNetworkImage(
+                                          fit: BoxFit.cover,
+                                          imageUrl: item,
+                                          placeholder: (context, url) =>
+                                              CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ))
-                        .toList()))
+                                ))
+                            .toList()))
           ],
         ),
       ),
