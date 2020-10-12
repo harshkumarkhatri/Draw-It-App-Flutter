@@ -1,6 +1,8 @@
+// This file has the code related to Initial Screen which displays the GIF
+
 import 'dart:async';
 
-import 'package:draw_it_app/del_screenshot_test.dart';
+import 'package:draw_it_app/myHomePage.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,7 +29,6 @@ class _SplashScreenState extends State<SplashScreen> {
             Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(color: Colors.white),
-              // TODO: Add the desired gif file here
               child: Image.asset("assets/loadingGIF.gif"),
             ),
             Column(

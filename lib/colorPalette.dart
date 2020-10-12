@@ -1,3 +1,5 @@
+// This file has the code for the color pallette which is helpful in choosing multiple colors for drawing.
+
 import 'package:flutter/material.dart';
 
 class ColorDialog extends StatefulWidget {

@@ -1,3 +1,5 @@
+// This file has the code related to about the developer screen.
+
 import 'package:flutter/material.dart';
 
 class AboutTheApp extends StatefulWidget {
@@ -33,7 +35,6 @@ class _AboutTheAppState extends State<AboutTheApp> {
                       color: Colors.black,
                       image: DecorationImage(
                         image: AssetImage(
-                          // TODO:Add the asset image of app
                           "assets/appLogo.png",
                         ),
                       ),
@@ -66,21 +67,16 @@ class _AboutTheAppState extends State<AboutTheApp> {
                         child: new Container(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: new Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("What is Draw It?",
-                                      style: TextStyle(fontSize: 18)),
-                                  Icon(Icons.arrow_circle_down)
-                                ],
-                              )
-                              // Text("What is Draw It?",style:TextStyle(fontSize: 18)),
-                              ),
-                          // color: Colors.blueAccent,
-                          // height: 25.0,
-                          // width: 100.0,
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("What is Draw It?",
+                                    style: TextStyle(fontSize: 18)),
+                                Icon(Icons.arrow_circle_down)
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       initial1 == true
@@ -96,9 +92,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                         letterSpacing: 0.6,
                                         height: 1.1)),
                               ),
-                              // height: 100,
                               color: Colors.tealAccent,
-                              // width: 100.0,
                             )
                           : Container(height: 0, width: 0)
                     ],
@@ -122,27 +116,22 @@ class _AboutTheAppState extends State<AboutTheApp> {
                         child: new Container(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: new Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 250,
-                                    child: Text(
-                                        "Which language is used to make this app?",
-                                        maxLines: 10,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(fontSize: 18)),
-                                  ),
-                                  Icon(Icons.arrow_circle_down)
-                                ],
-                              )
-                              // Text("What is Draw It?",style:TextStyle(fontSize: 18)),
-                              ),
-                          // color: Colors.blueAccent,
-                          // height: 25.0,
-                          // width: 100.0,
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 250,
+                                  child: Text(
+                                      "Which language is used to make this app?",
+                                      maxLines: 10,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(fontSize: 18)),
+                                ),
+                                Icon(Icons.arrow_circle_down)
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       initial2 == true
@@ -158,9 +147,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                         letterSpacing: 0.6,
                                         height: 1.1)),
                               ),
-                              // height: 100,
                               color: Colors.tealAccent,
-                              // width: 100.0,
                             )
                           : Container(height: 0, width: 0)
                     ],
@@ -184,27 +171,22 @@ class _AboutTheAppState extends State<AboutTheApp> {
                         child: new Container(
                           alignment: Alignment.centerLeft,
                           child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: new Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 250,
-                                    child: Text(
-                                        "My screen is not clearing after i press the clear button. What should i do?",
-                                        maxLines: 10,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(fontSize: 18)),
-                                  ),
-                                  Icon(Icons.arrow_circle_down)
-                                ],
-                              )
-                              // Text("What is Draw It?",style:TextStyle(fontSize: 18)),
-                              ),
-                          // color: Colors.blueAccent,
-                          // height: 25.0,
-                          // width: 100.0,
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 250,
+                                  child: Text(
+                                      "My screen is not clearing after i press the clear button. What should i do?",
+                                      maxLines: 10,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(fontSize: 18)),
+                                ),
+                                Icon(Icons.arrow_circle_down)
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                       initial3 == true
@@ -220,9 +202,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                         letterSpacing: 0.6,
                                         height: 1.1)),
                               ),
-                              // height: 100,
                               color: Colors.tealAccent,
-                              // width: 100.0,
                             )
                           : Container(height: 0, width: 0)
                     ],
@@ -261,12 +241,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                   ),
                                   Icon(Icons.arrow_circle_down)
                                 ],
-                              )
-                              // Text("What is Draw It?",style:TextStyle(fontSize: 18)),
-                              ),
-                          // color: Colors.blueAccent,
-                          // height: 25.0,
-                          // width: 100.0,
+                              )),
                         ),
                       ),
                       initial4 == true
@@ -282,9 +257,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                         letterSpacing: 0.6,
                                         height: 1.1)),
                               ),
-                              // height: 100,
                               color: Colors.tealAccent,
-                              // width: 100.0,
                             )
                           : Container(height: 0, width: 0)
                     ],
@@ -323,12 +296,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                   ),
                                   Icon(Icons.arrow_circle_down)
                                 ],
-                              )
-                              // Text("What is Draw It?",style:TextStyle(fontSize: 18)),
-                              ),
-                          // color: Colors.blueAccent,
-                          // height: 25.0,
-                          // width: 100.0,
+                              )),
                         ),
                       ),
                       initial5 == true
@@ -344,9 +312,7 @@ class _AboutTheAppState extends State<AboutTheApp> {
                                         letterSpacing: 0.6,
                                         height: 1.1)),
                               ),
-                              // height: 100,
                               color: Colors.tealAccent,
-                              // width: 100.0,
                             )
                           : Container(height: 0, width: 0)
                     ],

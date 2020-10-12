@@ -1,3 +1,5 @@
+// This file has the code related to the signup page of the app.
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -86,6 +88,8 @@ class _SignUpState extends State<SignUp> {
                   decoration: InputDecoration(labelText: "Password"),
                 ),
               ),
+
+              // Confirm password
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: TextFormField(

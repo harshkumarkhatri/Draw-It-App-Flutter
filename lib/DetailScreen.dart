@@ -188,7 +188,6 @@ class _DetailScreenState extends State<DetailScreen> {
                 // More widget
                 GestureDetector(
                   onTap: () {
-                    // Navigator.pop(context);
                     setState(() {
                       switcher == true ? switcher = false : switcher = true;
                     });
@@ -197,7 +196,6 @@ class _DetailScreenState extends State<DetailScreen> {
                   child: SafeArea(
                     child: Container(
                       height: 30,
-                      // width: 30,
                       decoration: BoxDecoration(
                         color: Colors.lightBlue[200],
                         borderRadius: BorderRadius.circular(

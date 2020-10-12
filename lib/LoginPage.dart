@@ -1,10 +1,10 @@
-import 'package:draw_it_app/anotherPage.dart';
+// This file has the code related to Login page.
+
 import 'package:draw_it_app/initialScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,14 +18,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text("Signin"),
-        // ),
         body: SingleChildScrollView(
       child: Form(
         key: _formKey,
         child: Column(
           children: [
+            // Email text field
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
               child: TextFormField(
@@ -41,6 +39,8 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(labelText: "Email"),
               ),
             ),
+
+            // Password text field
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: TextFormField(
@@ -57,6 +57,8 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(labelText: "Password"),
               ),
             ),
+
+            // Submit button
             Padding(
               padding: const EdgeInsets.only(top: 20.0, left: 15, right: 15),
               child: RaisedButton(
@@ -64,10 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                   setState(() {
                     loading = true;
                   });
-                  print(loading);
                   signin();
-
-                  print(loading);
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
@@ -90,8 +89,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Icon(Icons.g_translate),
-                      // SizedBox(width: 20),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text("Sign In"),
@@ -101,20 +98,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
+            // Circular progress bar to show the time taken while login
             SizedBox(height: 15),
             loading == true && _email != null && _password.length > 2
                 ? CircularProgressIndicator()
                 : Container(),
             SizedBox(height: 15),
+
+            // Skip for now button
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: RaisedButton(
                 onPressed: () async {
-                  // googleSignIn(context);
-                  // SharedPreferences prefs =
-                  //     await SharedPreferences.getInstance();
-                  //     // var email = prefs.getString('email');
-                  //     prefs.setString('skip', 'skipped');
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (_) => SplashScreen()));
                 },
@@ -139,8 +135,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Icon(Icons.g_translate),
-                      // SizedBox(width: 20),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text("Skip for Now"),
@@ -159,29 +153,34 @@ class _LoginPageState extends State<LoginPage> {
   final nameHolder = TextEditingController();
   final nameHolder2 = TextEditingController();
 
+  // Clearing the textfields after successful/un-successful signin
   clearTextInput() {
     nameHolder.clear();
     nameHolder2.clear();
   }
 
+  // SignIning in with email and password
   Future<void> signin() async {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
     final formState = _formKey.currentState;
+
+    // When we have a valid form state
     if (formState.validate()) {
       formState.save();
+
+      // Trying to sign user in
       try {
-        print("aw");
         UserCredential result = (await _firebaseAuth.signInWithEmailAndPassword(
             email: _email, password: _password));
-        print("aiting");
-        print(result.user.email);
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', result.user.email);
         prefs.setString('uid', result.user.uid);
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (_) => SplashScreen()));
-      } catch (e) {
-        print("catch $e");
+      }
+
+      // Catching exception/error and displaying a message in the snackbar
+      catch (e) {
         Fluttertoast.showToast(
             msg:
                 "No account exist with these credentials.\nPlease check your credentials and try logging in again.");
@@ -192,36 +191,4 @@ class _LoginPageState extends State<LoginPage> {
       }
     }
   }
-
-  // Future<FirebaseUser> googleSignIn(BuildContext context) async {
-  //   FirebaseUser currentUse;
-  //   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  //   try {
-  //     final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
-  //     final GoogleSignInAuthentication googleauth =
-  //         await googleUser.authentication;
-  //     final AuthCredential credential = GoogleAuthProvider.getCredential(
-  //         idToken: googleauth.idToken, accessToken: googleauth.accessToken);
-  //     final FirebaseUser user =
-  //         (await _firebaseAuth.signInWithCredential(credential)).user;
-  //     assert(user.email != null);
-  //     assert(user.displayName != null);
-  //     assert(!user.isAnonymous);
-  //     assert(await user.getIdToken() != null);
-
-  //     currentUse = await _firebaseAuth.currentUser;
-  //     assert(user.uid == currentUse.uid);
-  //     print(currentUse);
-  //     print("username = ${currentUse.displayName}");
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (context) => SplashScreen(),
-  //       ),
-  //     );
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  //   return currentUse;
-  // }
 }

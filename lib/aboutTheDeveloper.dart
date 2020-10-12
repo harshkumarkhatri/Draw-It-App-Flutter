@@ -1,6 +1,7 @@
+// This file has the code related to about the developer page
+
 import 'package:draw_it_app/aboutTheApp.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'webBrowserOpen.dart';
@@ -51,7 +52,6 @@ class _AboutTheDevState extends State<AboutTheDev> {
                       color: Colors.greenAccent,
                       image: DecorationImage(
                         image: AssetImage(
-                          // TODO:add the asset image of me
                           "assets/myImage.jpg",
                         ),
                       ),
