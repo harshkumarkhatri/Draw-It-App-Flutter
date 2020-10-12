@@ -18,7 +18,7 @@ Future<void> main() async {
   // Forcing the layout to be portrait
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(MaterialApp(
+  runApp(MaterialApp(debugShowCheckedModeBanner: false,
       title: "Draw It",
       home: email == null ? LogInSignUpSwitcher() : SplashScreen()));
 }
