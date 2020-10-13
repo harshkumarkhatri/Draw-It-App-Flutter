@@ -56,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   SharedPreferences prefs;
   bool _saveTo = false;
   var email, uid, imageUrl;
+  Color temp;
 
   // Auth for firebase authentications
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -369,6 +370,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                         color = temp;
                       });
                     }
+                    _pickStroke();
                   },
                 ),
               ),
@@ -391,8 +393,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   mini: true,
                   child: Icon(Icons.brush),
                   onPressed: () {
-                    Color temp;
-                    temp = Colors.black;
                     if (temp != null) {
                       setState(
                         () {
@@ -403,10 +403,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               strokeWidth: strokeWidth));
                           points.clear();
                           strokeCap = StrokeCap.round;
-                          strokeWidth = 5.0;
+                          strokeWidth = strokeWidth;
                           color = temp;
                         },
                       );
+                      _pickStroke();
+                      print("Stroke width is $strokeWidth");
                     }
                   },
                 ),
@@ -432,9 +434,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     Icons.color_lens,
                   ),
                   onPressed: () async {
-                    Color temp;
                     temp = await showDialog(
                         context: context, builder: (context) => ColorDialog());
+                    setState(() {
+                      temp;
+                    });
                     if (temp != null) {
                       setState(
                         () {
@@ -445,7 +449,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                               strokeWidth: strokeWidth));
                           points.clear();
                           strokeCap = StrokeCap.round;
-                          strokeWidth = 5.0;
+                          strokeWidth = strokeWidth;
                           color = temp;
                         },
                       );
@@ -506,6 +510,70 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           ],
         ),
       ),
+    );
+  }
+
+  // This will help in changing the width of the stroke of the brush
+  Future<void> _pickStroke() async {
+    //Shows AlertDialog
+    return showDialog<void>(
+      context: context,
+
+      //Dismiss alert dialog when set true
+      barrierDismissible: true, // user must tap button!
+      builder: (BuildContext context) {
+        return Container(
+          height: 50,
+          width: 190,
+          color: Colors.red,
+          child: Row(
+            children: <Widget>[
+              //Resetting to default stroke value
+              FlatButton(
+                child: Icon(Icons.brush, size: 20),
+                onPressed: () {
+                  temp = temp;
+                  strokeWidth = 3.0;
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Icon(
+                  Icons.brush,
+                  size: 35,
+                ),
+                onPressed: () {
+                  temp = temp;
+                  strokeWidth = 5.0;
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Icon(
+                  Icons.brush,
+                  size: 45,
+                ),
+                onPressed: () {
+                  strokeWidth = 25.0;
+                  temp = temp;
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Icon(
+                  Icons.brush,
+                  size: 60,
+                ),
+                onPressed: () {
+                  strokeWidth = 50.0;
+                  temp = temp;
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 
