@@ -71,7 +71,7 @@ class _AboutTheDevState extends State<AboutTheDev> {
                   padding:
                       const EdgeInsets.only(top: 15.0, left: 30, right: 30),
                   child: Text(
-                    "I ama a CSE Undergraduate from Career Point University. I love to learn about technology and explore various different dynamics of it. This is a for my technovation project for 5th semester.",
+                    "I am a CSE Undergraduate from Career Point University. I love to learn about technology and explore various different dynamics of it. This app is for my technovation project for 5th semester.",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w200),
                     textAlign: TextAlign.center,
                   ),
