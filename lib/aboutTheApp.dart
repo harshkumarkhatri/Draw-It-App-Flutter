@@ -14,6 +14,8 @@ class _AboutTheAppState extends State<AboutTheApp> {
   bool initial3 = false;
   bool initial4 = false;
   bool initial5 = false;
+  bool initial6 = false;
+  bool initial7 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -318,8 +320,118 @@ class _AboutTheAppState extends State<AboutTheApp> {
                     ],
                   ),
                 ),
+                SizedBox(height: 5),
+                Card(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      new GestureDetector(
+                        onTap: () => setState(() {
+                          _animatedHeight == 0.0
+                              ? _animatedHeight = 100.0
+                              : _animatedHeight = 00.0;
+                          initial6 == false
+                              ? initial6 = true
+                              : initial6 = false;
+                        }),
+                        child: new Container(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: new Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: 250,
+                                    child: Text(
+                                        "Where are images saved when \"Saved on Cloud\" is enabled?",
+                                        maxLines: 10,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(fontSize: 18)),
+                                  ),
+                                  Icon(Icons.arrow_circle_down)
+                                ],
+                              )),
+                        ),
+                      ),
+                      initial6 == true
+                          ? new AnimatedContainer(
+                              duration: const Duration(milliseconds: 120),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: new Text(
+                                    "The images are saved on Online storage which is allocated to you once you create your account.",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300,
+                                        letterSpacing: 0.6,
+                                        height: 1.1)),
+                              ),
+                              color: Colors.tealAccent,
+                            )
+                          : Container(height: 0, width: 0)
+                    ],
+                  ),
+                ),
+                SizedBox(height: 5),
+                Card(
+                  child: new Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      new GestureDetector(
+                        onTap: () => setState(() {
+                          _animatedHeight == 0.0
+                              ? _animatedHeight = 100.0
+                              : _animatedHeight = 00.0;
+                          initial7 == false
+                              ? initial7 = true
+                              : initial7 = false;
+                        }),
+                        child: new Container(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: new Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: 250,
+                                    child: Text(
+                                        "Where are images saved when \"Save in storage\" is selected?",
+                                        maxLines: 10,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(fontSize: 18)),
+                                  ),
+                                  Icon(Icons.arrow_circle_down)
+                                ],
+                              )),
+                        ),
+                      ),
+                      initial7 == true
+                          ? new AnimatedContainer(
+                              duration: const Duration(milliseconds: 120),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: new Text(
+                                    "The images are saved on your local storage under the folder name \"Draw It\". You can find the folder inside your gallery or inside the file manager.",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w300,
+                                        letterSpacing: 0.6,
+                                        height: 1.1)),
+                              ),
+                              color: Colors.tealAccent,
+                            )
+                          : Container(height: 0, width: 0)
+                    ],
+                  ),
+                ),
                 SizedBox(height: 30),
-                Center(child: Text("Version:1.0.2")),
+                Center(child: Text("Version:1.0.3")),
                 SizedBox(height: 20),
               ],
             ),
