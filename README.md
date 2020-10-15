@@ -1,95 +1,59 @@
-# draw_it_app
+# Draw It App
 
-A new Flutter project.
-Done:-
-* Saving the canvas and clearing the screen---done
-* deleting the lines which we have drawn--- ased an erase option.
-* adding a background image on which drawing can be done and then saving it.
-* adding some text on the image---not doing this for now.
-* make the drawing screen with the app bar so that some details can be added in the appbar----Done with a stack
-* adding double back to close the app--- this is not being done as we are having a snackbar pre present in the bottom and it will not appear again
-* saving to the device is working fine. i need to add a ticker which can be used to save the photos to the gallery or to the cloud.Was working on this look for how we can save the state of the variable defined in the del_variable and changed with the ticker.---added an option in the top 3 dots which can be used to switch between the saving state.
-* the only pro3blem which is coming now is that the screen is not refreshed after th image is save to gallery whereas when the image is saved to cloud things are fine.---Added it to FAQ.
-* Saving images to storage in a particular folder--- done with the help of keeping a new directory name along with the file.
-* Saving images to cloud in the folder which is unique and identified with their username/email--- Done by adding a folderName/to the file name.
-* Completed the UI for login app
-* Completed the login page functionalities:-agar sign in kr k jayega toh ander feature us hisab sai milenge. agar skip for now kr k jayega toh ander feature us hisaab sai milenge.
-* Completed circular progress bar indicator thing for login page.
-* App is saving the login if the user logs in once.
-* If the user does not logs in then he has to log in again and again.
-* Replace logout with profile option and in that display logout option.---not doing this because we do not have many things to show in profile except for emamil.
-* Adding the login and signup if the user wished to save to the cloud. This condition of login should be satisfied first. Also once the login is made then the app saves the login and it should not be done each time the app is closed.
-* clearing the textfields in sign upp after unsuccessful sign up.---added
-* make the password text fields obscure in all the text fields.---done
-* Add a circular progress bar indication when the user is submitting the form to make it look that it is taking time like naturally.---added for both the pages.
-* Saving the user login permanently so there is no need to login again and again and showing the logged in user details inside the user section(to be developed). Display please login if user is not logged in.---saving the user login permanently id done, usersection is not developing because there is only email to display in it. An alternate to this is done where we show logout to user after he has login saved else we show login.
-* confirm password is not working---done
-* Replace thefolder name with the username after successful login---done we are replacing it with uid
-* A way with whcih the images which are displayed from the cloud can be opened in the gallery---created a detail screen page whcih now opens the image when clicked from the gidview in image gridview screen. also added delete and share feature.
-* A waythrough which we can display all the images from the cloud and from storage to the user in another screen---not doing this because i have created detail screen for images which are there in cloud and for the images saved in local storage, a message is displayed saying you can see the images saved to storage in gallery.
-* Add a screen to display all the images which are saved in the cloud.(will be done once we are able to figure out how to save multiple values in firebase key value pair)---done
-* Store email and the image links to the
-database(2 cols). Update the links each
-time a new image uploaded, To  show the
-images check if we have the email same
-as that in sprefs.---done
-* Forced potrtrait orientation-done
-* Versioning-Mannual versioning will be done each time a new update is pushed to the app
-* Log out and login with int app when the user is logged in or not logged in needs to be worked upon.---done
-* push and context need to seen.As if we click on login after we have skipped first, it takes us to login but if we click in back button it takes us to screen. check if loggin in and clicking back takes us there.---this is done. The clicking of back button now pops up a exit confirmation box which on clicking yes takes us out of the app.
-* Set the name of app to Draw it app in the recent app section---done
-* Displaying a circular progress bar indicator which will keep on rotating until the image is loaded. If the user does not has any images then we need to display:-"No images found".---done
+<p align="center">
+  <a href="https://github.com/harshkumarkhatri/Draw-It-App-Flutter">
+    <img src="https://i.imgur.com/wclxnoH.png" alt="Logo" >
+  </a>
 
-## to be done
-* Updating some questions inside the FAQ.
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-reason.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/you-didnt-ask-for-this.svg)](https://forthebadge.com)
 
 
+## Introduction 📌
 
-## Future Scopes
-* If possible add login from google account and from other accounts as well.
+Students often tend to find something like a pen or papaer to write important thing down which they remember all of a suddent. They may type it down it on some note editor or in some chat but they often missout the feel which they get.
 
-## This is something i was doing in the morning and up till evening
-* The user when sign up with a new id and password, a new database instance is created which will be having a null as its link. Once the user will be drawing something and will be clicking on the save button then a new field in links is created with the top one as null. All the new fields will be be entered from 1. Once see if we have to do anything in the login thing.
+With this app, i tend to provide students a place where they can write down their notes or bits which they remember all of a sudden but they don't have a pen or a paper available to pen it down. Also it would provide children with a canvas to draw things out and show their creativity.
 
-## Things done till night
-I have added listview builder in the del_addingtodatabase.dart file and when the user visits that page the image have to laod automatically. The thing which is happening is that i have to press r twice to get all the images loaded(latest saved and old ones). I have to add circular progress bar indicator also which will indicate the image loading.
+## Technology Stack 🏁
 
-## Things done till morning october 2
-I have added a detail screen class in the del_forAddingToDB.dart which will be opening the image in a large view when we click on any of the image which is displayed in the gridview. The dead code removal and comment adding for del_Screenshot_test.dart has been completed.
+- [Flutter Web](https://flutter.dev/web)
+- [Firebase](https://firebase.google.com/)
 
-## Things done till evening october 2
-Added a circular cross button on the top right on the screen which shows the enlarged image from the images which are stored in the cloud.
+## Why this Project? 🏃‍♂️
 
-## Things done till afternoon october 3
-Changed the layout of the widget where the images were to be displayed, added a swipe feature to display delete and send buttons, a more widget also does the same things. Images from the cloud can now be shared.
+My main goal behind creating this project was to provide people(maily students) with a canvas where they can pen their idea when they get one all of a sudden and save it down to either cloud or local storage and have a look at the same later on. The feel which the app has while penning things down is somethings which makes you remember that you have drawn something which you can go and have a look at later.
 
-## Things done till night october 4
-Delete button now works fine. The image is removed from the storage and the link is removed from firestore. The image after being deleted results in popping of the screen. The problem which is there is that the list in the gridview is not updated dynamically and the image is still there in the list of images which are there.
+The interface of the app is simple yet elegant which makes it begineer friendly as well.
 
-## Things done till night October 5
-Dead code removed from detail screen.dart file and from Images gridview file. Apart from this code was moved to seperate files for better redability. The problem of gridview not reloading and not being able to display the items was resolved by two pop operations being performed and then a puch operation being performed.
+For this project, i have worked on various domains like:
 
-## Things done till night October 6
-I am thinking of having this as a solution for displaying images saved in storage in the app. We cca do one thing, while saving the image we can display a messagesaying image is saved in storage and can be seen withing gallery. If the user id not logged in then he will be saving files to storage and will not be having the option to see the images saved to gallery. We can replace that option with an option which on click will take the user to the folder in file explorer or gallery and shpw them the saved images.
-For the user who is logged in already, there will a message displayed in the image gridview section saing, images saved in local storage can be vieewd in gallery.
+- UI/UX Development with Flutter 
+- Data Storage with Firebase Firestore
+- User authentication with Firebase
+- Image storage with Firebase storage & with Local Storage
 
-## Things done till night October 7
-When i tested the app with Skip for now, the app was lossing its functionality to save images only to storage. This issue has been fixed. Apart from this when a non logged in used clicks on images saved to cloud, then he is shown a snackbar which says you need to login to access this.
+## 👀 Build Instructions 
 
-## Nothing done on October 8
+- Clone the Repository: `git clone https://github.com/harshkumarkhatri/Draw-It-App-Flutter.git`
+- `cd` into the Repository: `cd draw_it_app`
+- Enable beta channel and enable web support:
+```
+$ flutter channel beta
+$ flutter upgrade
+$ flutter config --enable-web
+```
+- Check for the Devices configured for Flutter Web: `flutter devices`
+- Run the App in Release Mode: `flutter run`
+- Generate a Build: `flutter build apk --split-per-abi`
 
-## Things done on October 9
-Login and logout not pops a screen and takes the user to the loginsignup witcher. Also the values in the prefs are saved accordingly.
+## License 📜
+[MIT](https://github.com/harshkumarkhatri/Draw-It-App-Flutter/blob/master/LICENSE)
 
-## Getting Started
+## Contributors ✨
 
-This project is a starting point for a Flutter application.
+- [Harsh Kumar Khatri](https://github.com/harshkumarkhatri)
 
-A few resources to get you started if this is your first Flutter project:
-****
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
