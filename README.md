@@ -20,7 +20,7 @@ With this app, i tend to provide students a place where they can write down thei
 
 ## Technology Stack 🏁
 
-- [Flutter Web](https://flutter.dev/web)
+- [Flutter](https://flutter.dev/)
 - [Firebase](https://firebase.google.com/)
 
 ## Why this Project? 🏃‍♂️
