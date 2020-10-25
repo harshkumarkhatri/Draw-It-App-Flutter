@@ -14,9 +14,9 @@
 
 ## Introduction 📌
 
-Students often tend to find something like a pen or papaer to write important thing down which they remember all of a suddent. They may type it down it on some note editor or in some chat but they often missout the feel which they get.
+Students often tend to find something like a pen or paper to write important thing down which they remember all of a sudden. They may type it down it on some note editor or in some chat but they often miss-out the feel which they get.
 
-With this app, i tend to provide students a place where they can write down their notes or bits which they remember all of a sudden but they don't have a pen or a paper available to pen it down. Also it would provide children with a canvas to draw things out and show their creativity.
+With this app, i tend to provide students/people a place where they can write down their notes or bits which they remember all of a sudden but they don't have a pen or a paper available to write it down. Also it would provide children with a canvas to draw things out and show their creativity.
 
 ## Technology Stack 🏁
 
